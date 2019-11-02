@@ -9,6 +9,8 @@ export class CalculatorComponent implements OnInit {
   buttons: string[];
   prevValue: string;
   private calculation: string;
+  lastChar: string;
+  lastChar2: string;
 
   constructor() {
     this.calculation = '';
@@ -28,6 +30,16 @@ export class CalculatorComponent implements OnInit {
       this.calculation = '';
     } else {
       this.calculation += value;
+      this.lastChar = this.calculation[this.calculation.length - 1];
+      this.lastChar2 = this.calculation[this.calculation.length - 2];
+
+      // tslint:disable-next-line:max-line-length
+      if (this.lastChar === '/' && this.lastChar2 === '/' || this.lastChar === '/' && this.lastChar2 === '*' || this.lastChar === '/' && this.lastChar2 === '+' || this.lastChar === '/' && this.lastChar2 === '-' || this.lastChar === '*' && this.lastChar2 === '/' || this.lastChar === '*' && this.lastChar2 === '*' ||  this.lastChar === '*' && this.lastChar2 === '+' || this.lastChar === '*' && this.lastChar2 === '-' || this.lastChar === '+' && this.lastChar2 === '/' || this.lastChar === '+' && this.lastChar2 === '*' || this.lastChar === '+' && this.lastChar2 === '+' || this.lastChar === '+' && this.lastChar2 === '-' || this.lastChar === '-' && this.lastChar2 === '/' || this.lastChar === '-' && this.lastChar2 === '*' || this.lastChar === '-' && this.lastChar2 === '+' || this.lastChar === '-' && this.lastChar2 === '-') {
+        console.log('Virhe');
+        this.calculation = this.calculation.substring(0, this.calculation.length - 1);
+      }
+      // console.log(this.lastChar);
+      // console.log(this.lastChar2);
     }
   }
 
