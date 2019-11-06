@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FeedbackItem} from './classes/feedback-item';
+import {FeedbackItem} from './feedback-class/feedback-item';
 
 @Component({
   selector: 'app-feedback',
@@ -19,6 +19,9 @@ export class FeedbackComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  onInputChange(feedbackEvent: any, fbItem: FeedbackItem) {
+    console.log(feedbackEvent.value);
+    console.log(fbItem.question);
+  }
 
 }

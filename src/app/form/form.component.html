@@ -1,0 +1,22 @@
+<p>form works!</p>
+<div class="container">
+  <label for="firstName">Etunimi</label>
+  <br>
+  <input type="text"
+         class="form-control"
+         id="firstName"
+         [(ngModel)]="person.firstName"
+         name="firstName"
+         #name="ngModel"
+         required minlength="5">
+  <br><br>
+  <label for="lastName">Sukunimi</label>
+  <br>
+  <input type="text"
+         class="form-control"
+         id="lastName"
+         [(ngModel)]="person.lastName"
+         name="lastName"
+         #name="ngModel"
+         required minlength="5">
+</div>
