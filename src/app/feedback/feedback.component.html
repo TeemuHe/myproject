@@ -1,0 +1,10 @@
+<h1>Palaute</h1>
+<div class="feedback">
+  <mat-card class="fbCard" *ngFor="let question of feedbackItemsList">
+    {{question.question}}
+    <br>
+    <!--Slider value is 0, while no value-->
+    <mat-slider class="slider" min="0" max="4" step="1" #matslider ></mat-slider>
+    <div>{{question.answerList[matslider.value]}}</div>
+  </mat-card>
+</div>

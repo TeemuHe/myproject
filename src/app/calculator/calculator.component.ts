@@ -7,14 +7,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
   buttons: string[];
-  prevValue: string;
   private calculation: string;
   lastChar: string;
   lastChar2: string;
 
   constructor() {
     this.calculation = '';
-    this.prevValue = '';
     this.buttons = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '+', 'C', '0', '=', '-'];
   }
 
@@ -34,7 +32,7 @@ export class CalculatorComponent implements OnInit {
       this.lastChar2 = this.calculation[this.calculation.length - 2];
 
       // tslint:disable-next-line:max-line-length
-      if (this.lastChar === '/' && this.lastChar2 === '/' || this.lastChar === '/' && this.lastChar2 === '*' || this.lastChar === '/' && this.lastChar2 === '+' || this.lastChar === '/' && this.lastChar2 === '-' || this.lastChar === '*' && this.lastChar2 === '/' || this.lastChar === '*' && this.lastChar2 === '*' ||  this.lastChar === '*' && this.lastChar2 === '+' || this.lastChar === '*' && this.lastChar2 === '-' || this.lastChar === '+' && this.lastChar2 === '/' || this.lastChar === '+' && this.lastChar2 === '*' || this.lastChar === '+' && this.lastChar2 === '+' || this.lastChar === '+' && this.lastChar2 === '-' || this.lastChar === '-' && this.lastChar2 === '/' || this.lastChar === '-' && this.lastChar2 === '*' || this.lastChar === '-' && this.lastChar2 === '+' || this.lastChar === '-' && this.lastChar2 === '-') {
+      if (this.lastChar === '/' && this.lastChar2 === '/' || this.lastChar === '/' && this.lastChar2 === '*' || this.lastChar === '/' && this.lastChar2 === '+' || this.lastChar === '/' && this.lastChar2 === '-' || this.lastChar === '*' && this.lastChar2 === '/' || this.lastChar === '*' && this.lastChar2 === '*' ||  this.lastChar === '*' && this.lastChar2 === '+' || this.lastChar === '*' && this.lastChar2 === '-' || this.lastChar === '+' && this.lastChar2 === '/' || this.lastChar === '+' && this.lastChar2 === '*' || this.lastChar === '+' && this.lastChar2 === '+' || this.lastChar === '+' && this.lastChar2 === '-' || this.lastChar === '-' && this.lastChar2 === '/' || this.lastChar === '-' && this.lastChar2 === '*' || this.lastChar === '-' && this.lastChar2 === '+' || this.lastChar === '-' && this.lastChar2 === '-' || this.lastChar === '=' && this.lastChar2 === '/' || this.lastChar === '=' && this.lastChar2 === '*' || this.lastChar === '=' && this.lastChar2 === '+' || this.lastChar === '=' && this.lastChar2 === '-') {
         console.log('Virhe');
         this.calculation = this.calculation.substring(0, this.calculation.length - 1);
       }

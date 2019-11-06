@@ -1,0 +1,18 @@
+mat-slider {
+  width: 300px;
+}
+.feedback {
+  margin-left: 30%;
+  background: lightgreen;
+  margin-right: 30%;
+  border: 30px solid lightgreen;
+  border-radius: 10%;
+}
+
+.slider {
+  margin-left: 5px;
+}
+
+.fbCard {
+  margin-bottom: 10px;
+}
