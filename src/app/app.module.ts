@@ -4,13 +4,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatButtonModule, MatCardModule, MatMenuModule, MatSliderModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule, MatCheckboxModule,
+  MatFormFieldModule,
+  MatMenuModule,
+  MatSliderModule, MatSnackBarModule,
+  MatToolbarModule
+} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FeedbackComponent } from './feedback/feedback.component';
 import {RouterModule} from '@angular/router';
 import { FormComponent } from './form/form.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +28,9 @@ import {FormsModule} from '@angular/forms';
     CalculatorComponent,
     ToolbarComponent,
     FeedbackComponent,
-    FormComponent
+    FormComponent,
+    ReactiveFormComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +43,12 @@ import {FormsModule} from '@angular/forms';
     MatSliderModule,
     MatCardModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

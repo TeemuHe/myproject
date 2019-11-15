@@ -1,3 +1,14 @@
 .container {
-  margin-left: 30%;
+  margin-left: 35%;
+  background: lightgreen;
+  margin-right: 35%;
+  border: 35px solid lightgreen;
+  border-radius: 15%;
+}
+.submitBtn {
+  margin-right: 0px;
+}
+.invalid {
+  color: red;
+  font-size: smaller;
 }

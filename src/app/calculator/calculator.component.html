@@ -5,7 +5,7 @@
       <input class="answer" type="text" placeholder="0" value="{{calculation}}">
     </mat-grid-tile>
     <div class="container">
-      <mat-grid-tile class="calcBtnTiles" *ngFor="let button of buttons">
+      <mat-grid-tile  *ngFor="let button of buttons">
         <button mat-raised-button (click)="addValue(button)" class="calculatorButtons">{{button}}</button>
       </mat-grid-tile>
     </div>

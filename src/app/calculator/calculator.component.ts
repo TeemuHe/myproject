@@ -20,6 +20,12 @@ export class CalculatorComponent implements OnInit {
 
   }
 
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnDestroy() {
+    console.log('Calculator component ngOnDestroy');
+  }
+
+
   addValue(value: string) {
     if (value === '=') {
       // tslint:disable-next-line:no-eval

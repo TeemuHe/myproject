@@ -1,22 +1,112 @@
-<p>form works!</p>
-<div class="container">
-  <label for="firstName">Etunimi</label>
+<h1>Lomake</h1>
+<form class="container" (ngSubmit)="onSubmit(form1)" #form1="ngForm">
+  <mat-form-field class="form-group">
+    <label for="firstName">Etunimi</label>
+    <br>
+    <input matInput
+           type="text"
+           id="firstName"
+           [(ngModel)]="person.firstName"
+           name="firstName"
+           #fname="ngModel"
+           pattern="[a-zA-Z ]*"
+           required minlength="2">
+  </mat-form-field>
+  <div class="invalid" *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+    <div *ngIf="fname.hasError('required')">Laita etunimi</div>
+    <div *ngIf="fname.hasError('minlength')">Liian lyhyt etunimi</div>
+    <div *ngIf="fname.hasError('pattern')">Virheellisiä merkkejä</div>
+  </div>
+
+  <mat-form-field class="form-group">
+    <label for="lastName">Sukunimi</label>
+    <br>
+    <input matInput
+           type="text"
+           id="lastName"
+           [(ngModel)]="person.lastName"
+           name="lastName"
+           #name="ngModel"
+           pattern="[a-zA-Z ]*"
+           required minlength="2">
+  </mat-form-field>
   <br>
-  <input type="text"
-         class="form-control"
-         id="firstName"
-         [(ngModel)]="person.firstName"
-         name="firstName"
-         #name="ngModel"
-         required minlength="5">
-  <br><br>
-  <label for="lastName">Sukunimi</label>
+  <div class="invalid" *ngIf="name.invalid && (name.dirty || name.touched)">
+    <div *ngIf="name.hasError('required')">Laita sukunimi</div>
+    <div *ngIf="name.hasError('minlength')">Liian lyhyt sukunimi</div>
+    <div *ngIf="name.hasError('pattern')">Virheellisiä merkkejä</div>
+  </div>
+  <mat-form-field class="form-group">
+    <label for="email">Email</label>
+    <br>
+    <input matInput
+           type="text"
+           id="email"
+           [(ngModel)]="person.email"
+           name="email"
+           #email="ngModel"
+           required minlength="5"
+           pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+  </mat-form-field>
   <br>
-  <input type="text"
-         class="form-control"
-         id="lastName"
-         [(ngModel)]="person.lastName"
-         name="lastName"
-         #name="ngModel"
-         required minlength="5">
-</div>
+  <div class="invalid" *ngIf="email.invalid && (email.dirty || email.touched)">
+    <div *ngIf="email.hasError('required')">Laita email</div>
+    <div *ngIf="email.hasError('pattern')">Virheellinen osoite</div>
+  </div>
+  <mat-form-field class="form-group">
+    <label for="username">Henkilötunnus</label>
+    <br>
+    <input matInput
+           type="text"
+           id="username"
+           [(ngModel)]="person.username"
+           name="username"
+           #userName="ngModel"
+           required minlength="11"
+           required maxlength="11"
+           pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([5-9]\d\+|\d\d-|[01]\dA)\d{3}[\dA-Z]$"
+    >
+    <div class="invalid" *ngIf="name.invalid && (userName.dirty || userName.touched)">
+      <div *ngIf="userName.hasError('required')">Laita hlötunnus</div>
+      <div *ngIf="userName.hasError('minlength')">Liian lyhyt tunnus</div>
+      <div *ngIf="userName.hasError('maxlength')">Liian pitkä tunnus</div>
+      <div *ngIf="userName.hasError('pattern')">Virheellinen tunnus</div>
+    </div>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="form-group">
+    <label for="password">Salasana</label>
+    <input matInput
+           type="password"
+           id="password"
+           [(ngModel)]="person.password"
+           name="password"
+           #password="ngModel"
+           pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{10,}"
+           required minlength="10">
+    <div class="invalid" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.hasError('required')">Syötä salasana</div>
+      <div *ngIf="password.hasError('minlength')">Liian lyhyt salasana</div>
+      <div *ngIf="password.hasError('pattern')">Ei tarvittuja merkkejä</div>
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <label for="passwordConfirm">Vahvista salasana</label>
+    <input matInput
+           type="password"
+           id="passwordConfirm"
+           [(ngModel)]="person.passwordConfirm"
+           name="passwordConfirm"
+           #passwordConfirm="ngModel"
+           required minlength="10"
+           pattern="{{password.value}}">
+    <div class="invalid" *ngIf="passwordConfirm.invalid && (passwordConfirm.dirty || passwordConfirm.touched)">
+      <div *ngIf="passwordConfirm.hasError('pattern')">Ei ole sama</div>
+    </div>
+  </mat-form-field>
+
+  <br>
+  <mat-checkbox [(ngModel)]="checked" name="checkbox">Käyttöehdot luettu</mat-checkbox>
+  <br>
+  <button mat-raised-button *ngIf="checked.valueOf() && !form1.invalid" (click)="openSnackbar()">suubmit</button>
+</form>

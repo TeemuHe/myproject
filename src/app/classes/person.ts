@@ -1,17 +1,17 @@
 export class Person {
   firstName: string;
   lastName: string;
-  personId: string;
   email: string;
   username: string;
   password: string;
+  passwordConfirm: string;
 
-  constructor(firstName: string, lastName: string, personId: string, email: string, username: string, password: string) {
+  constructor(firstName?: string, lastName?: string, email?: string, username?: string, password?: string, passwordConfirm?: string) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.personId = personId;
     this.email = email;
     this.username = username;
     this.password = password;
+    this.passwordConfirm = passwordConfirm;
   }
 }
