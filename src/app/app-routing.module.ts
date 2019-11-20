@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'calculator', component: CalculatorComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'form' , component: FormComponent},
-  {path: 'reactive-form', component: ReactiveFormComponent},
+  {path: 'reactiveform', component: ReactiveFormComponent},
 
   {path: '', redirectTo: '/calculator', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}

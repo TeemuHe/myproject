@@ -104,9 +104,8 @@
       <div *ngIf="passwordConfirm.hasError('pattern')">Ei ole sama</div>
     </div>
   </mat-form-field>
-
   <br>
   <mat-checkbox [(ngModel)]="checked" name="checkbox">Käyttöehdot luettu</mat-checkbox>
   <br>
-  <button mat-raised-button *ngIf="checked.valueOf() && !form1.invalid" (click)="openSnackbar()">suubmit</button>
+  <button mat-raised-button [disabled]="form1.invalid" (click)="openSnackbar()">suubmit</button>
 </form>
