@@ -22,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {MatIconModule} from '@angular/material/icon';
+import {FeedbackService} from './services/feedback.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatSnackBarModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [
+    FeedbackService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

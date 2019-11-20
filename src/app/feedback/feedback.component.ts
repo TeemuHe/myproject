@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FeedbackItem} from '../classes/feedback-item';
+import {FeedbackService} from '../services/feedback.service';
 
 @Component({
   selector: 'app-feedback',
@@ -10,10 +11,13 @@ export class FeedbackComponent implements OnInit {
 
   feedbackItemsList: Array<FeedbackItem>;
 
-  constructor() {
-    this.feedbackItemsList = [new FeedbackItem('Millaista ruoka oli?'),
+  constructor(private fbData: FeedbackService) {
+    this.feedbackItemsList = this.fbData.getFeedback();
+
+    /* this.feedbackItemsList = [new FeedbackItem('Millaista ruoka oli?'),
       new FeedbackItem('Millaista palvelu oli?'),
-      new FeedbackItem('Oliko salaatti hyvää?')];
+      new FeedbackItem('Oliko salaatti hyvää?'),
+      new FeedbackItem('Neljäs kysymys')];*/
   }
 
   ngOnInit() {

@@ -1,10 +1,10 @@
 <mat-toolbar color="accent">
   <button mat-flat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon> Front-end työkalut</button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/calculator"><mat-icon>dialpad</mat-icon> Laskin</button>
-    <button mat-menu-item routerLink="/feedback"><mat-icon>child_care</mat-icon>Palaute</button>
-    <button mat-menu-item routerLink="/form"><mat-icon>description</mat-icon> Lomake</button>
-    <button mat-menu-item routerLink="/reactiveform"><mat-icon class="reactiveformIcon">description</mat-icon>Toisenlainen lomake</button>
+    <a href="/calculator"><button mat-flat-button><mat-icon>dialpad</mat-icon> Laskin</button></a><br>
+    <a href="/feedback"><button mat-flat-button><mat-icon>child_care</mat-icon> Palaute</button></a><br>
+    <a href="/form"><button mat-flat-button><mat-icon>description</mat-icon> Lomake</button></a><br>
+    <a href="/reactiveform"><button mat-flat-button><mat-icon class="reactiveformIcon">description</mat-icon> Toisenlainen lomake</button></a><br>
   </mat-menu>
+  <button mat-flat-button class="signInBtn">SIGN IN</button>
 </mat-toolbar>
-
