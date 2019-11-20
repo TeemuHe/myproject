@@ -7,7 +7,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {
   MatButtonModule,
   MatCardModule, MatCheckboxModule,
-  MatFormFieldModule, MatIconModule,
+  MatFormFieldModule,
   MatMenuModule,
   MatSliderModule, MatSnackBarModule,
   MatToolbarModule
@@ -21,6 +21,7 @@ import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
