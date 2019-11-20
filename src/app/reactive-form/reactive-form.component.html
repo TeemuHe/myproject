@@ -1,5 +1,5 @@
 <h1>Reactive lomake</h1>
-<form class="container" [formGroup]="profileForm" (ngSubmit)="onSubmit(form2)" #form2="ngForm">
+<form class="container" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="form-group">
     <label for="firstName">Etunimi</label>
     <br>
@@ -120,5 +120,5 @@
       HYVÄKSY EHDOT
     </mat-error>
   </mat-checkbox>
-  <button mat-raised-button [disabled]="form2.invalid" (click)="openSnackbar()">SUBMIT</button>
+  <button mat-raised-button [disabled]="profileForm.invalid" (click)="openSnackbar()">SUBMIT</button>
 </form>

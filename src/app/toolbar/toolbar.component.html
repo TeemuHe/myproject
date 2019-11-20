@@ -1,9 +1,10 @@
 <mat-toolbar color="accent">
   <button mat-flat-button [matMenuTriggerFor]="menu">Front-end työkalut</button>
   <mat-menu #menu="matMenu">
-    <a routerLink="/calculator"><button mat-menu-item>Laskin</button></a>
+    <button mat-menu-item routerLink="/calculator"><mat-icon>menu</mat-icon> Laskin</button>
     <a routerLink="/feedback"><button mat-menu-item>Palaute</button></a>
     <a routerLink="/form"><button mat-menu-item>Lomake</button></a>
     <a routerLink="/reactiveform"><button mat-menu-item>Toisenlainen lomake</button></a>
   </mat-menu>
 </mat-toolbar>
+

@@ -7,7 +7,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {
   MatButtonModule,
   MatCardModule, MatCheckboxModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatIconModule,
   MatMenuModule,
   MatSliderModule, MatSnackBarModule,
   MatToolbarModule
@@ -48,7 +48,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReactiveFormsModule,
     MatInputModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
