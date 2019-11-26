@@ -6,7 +6,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {
   MatButtonModule,
-  MatCardModule, MatCheckboxModule,
+  MatCardModule, MatCheckboxModule, MatExpansionModule,
   MatFormFieldModule,
   MatMenuModule,
   MatSliderModule, MatSnackBarModule,
@@ -23,6 +23,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {MatIconModule} from '@angular/material/icon';
 import {FeedbackService} from './services/feedback.service';
+import { CinemaComponent } from './cinema/cinema.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {FeedbackService} from './services/feedback.service';
     FeedbackComponent,
     FormComponent,
     ReactiveFormComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CinemaComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,9 @@ import {FeedbackService} from './services/feedback.service';
     MatInputModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    HttpClientModule
   ],
   providers: [
     FeedbackService

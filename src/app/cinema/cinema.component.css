@@ -1,0 +1,15 @@
+.movie {
+  max-width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.movieContent {
+  display: inline-block;
+  text-align: center;
+  float: top;
+}
+
+.date {
+  max-width: 20%;
+}

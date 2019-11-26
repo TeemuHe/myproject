@@ -1,0 +1,13 @@
+<h1>Elokuvia</h1>
+<mat-accordion>
+  <mat-expansion-panel class="movie" *ngFor="let item of cinemaData$ | async">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="date">{{item.PublishDate}}</mat-panel-title>
+      <mat-panel-description>
+        {{item.Title}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <img src="{{item.ImageURL}}" height="200px" width="300px">
+    <div class="movieContent">{{item.HTMLLead}}</div>
+  </mat-expansion-panel>
+</mat-accordion>
