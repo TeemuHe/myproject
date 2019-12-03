@@ -9,9 +9,18 @@ import {News} from '../classes/news';
   styleUrls: ['./cinema.component.css']
 })
 export class CinemaComponent implements OnInit {
-  private cinemaData$: Observable<News[]>;
+  public cinemaData$: Observable<News[]>;
+  searchText: string;
+
   // news: Array<News>;
-  news: Array<News>;
+  /*characters = [
+    'Finn the human',
+    'Jake the dog',
+    'Princess bubblegum',
+    'Lumpy Space Princess',
+    'Beemo1',
+    'Beemo2'
+  ]*/
 
   constructor(private cinemaService: CinemaService) {
     /*this.news = [new News('otsikko1', 'tänään',
@@ -20,7 +29,7 @@ export class CinemaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cinemaService.getData();
+    // this.cinemaService.getData();
     this.cinemaData$ = this.cinemaService.getData();
   }
 }

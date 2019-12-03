@@ -6,10 +6,13 @@
 
 .movieContent {
   display: inline-block;
-  text-align: center;
   float: top;
 }
 
 .date {
   max-width: 20%;
+}
+
+.searchBar {
+  position: center;
 }

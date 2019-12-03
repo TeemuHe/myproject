@@ -1,8 +1,18 @@
 <h1>Elokuvia</h1>
+<!--<input [(ngModel)]="searchText" placeholder="Hae...">
+<ul>
+  <li *ngFor="let c of characters | filter : searchText">
+    {{c}}
+  </li>
+</ul>-->
+
+<div class="form-group">
+  <input type="text" class="form-control" [(ngModel)]="searchText" placeHolder="Hae..." />
+</div>
 <mat-accordion>
-  <mat-expansion-panel class="movie" *ngFor="let item of cinemaData$ | async">
+  <mat-expansion-panel class="movie" *ngFor="let item of cinemaData$ | async | filter : searchText">
     <mat-expansion-panel-header>
-      <mat-panel-title class="date">{{item.PublishDate}}</mat-panel-title>
+      <mat-panel-title class="date">{{item.PublishDate | date}}</mat-panel-title>
       <mat-panel-description>
         {{item.Title}}
       </mat-panel-description>

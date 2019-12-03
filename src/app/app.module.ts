@@ -25,6 +25,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {FeedbackService} from './services/feedback.service';
 import { CinemaComponent } from './cinema/cinema.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormComponent,
     ReactiveFormComponent,
     PageNotFoundComponent,
-    CinemaComponent
+    CinemaComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

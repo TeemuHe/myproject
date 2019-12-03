@@ -1,11 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {News} from '../classes/news';
 import {map} from 'rxjs/operators';
-import {xml2js} from 'xml2js';
 import {parseString} from 'xml2js';
-
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +11,8 @@ import {parseString} from 'xml2js';
 export class CinemaService {
 
   url: string;
-  private moviesObservable: Observable<any>;
-  news: Array<News>;
+  // private moviesObservable: Observable<any>;
+  // news: Array<News>;
 
   constructor(private httpClient: HttpClient) {
     this.url = 'https://www.finnkino.fi/xml/news/';
@@ -32,14 +30,14 @@ export class CinemaService {
   getData(): Observable<any> {
     return this.httpClient.get(this.url, {responseType: 'text'})
       .pipe(map(response => {
-        console.log('getXMLData....' + response);
-
+        // console.log('getXMLData....' + response);
         let newsData: News[] = [];
         parseString(response, {
           trim: true,
           explicitArray: false,
           mergeAttrs: true
-        }, function (err, result) {
+          // tslint:disable-next-line:only-arrow-functions
+        }, function(err, result) {
           newsData = result.News.NewsArticle;
         });
         return newsData;
