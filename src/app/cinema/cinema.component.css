@@ -13,6 +13,10 @@
   max-width: 20%;
 }
 
-.searchBar {
-  position: center;
+.form-group {
+  margin-left: 44%;
+  width: 12%;
+}
+.placeholder {
+  color: black;
 }

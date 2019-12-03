@@ -7,12 +7,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {
   MatButtonModule,
   MatCardModule, MatCheckboxModule, MatExpansionModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatInputModule,
   MatMenuModule,
   MatSliderModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
-import {MatInputModule} from '@angular/material';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FeedbackComponent } from './feedback/feedback.component';
@@ -53,12 +52,12 @@ import { FilterPipe } from './pipes/filter.pipe';
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule,
     MatCheckboxModule,
     MatSnackBarModule,
     MatIconModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule
   ],
   providers: [
     FeedbackService
