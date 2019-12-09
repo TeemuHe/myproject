@@ -13,14 +13,7 @@ export class CinemaComponent implements OnInit {
   searchText: string;
 
   // news: Array<News>;
-  /*characters = [
-    'Finn the human',
-    'Jake the dog',
-    'Princess bubblegum',
-    'Lumpy Space Princess',
-    'Beemo1',
-    'Beemo2'
-  ]*/
+
 
   constructor(private cinemaService: CinemaService) {
     /*this.news = [new News('otsikko1', 'tänään',

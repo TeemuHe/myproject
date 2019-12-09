@@ -1,0 +1,21 @@
+section {
+  display: inline-block;
+}
+
+.currency {
+  margin-left: 10%;
+}
+
+.arrowIcon {
+  margin-left: 5%;
+}
+
+.arrowSection {
+  width: 1%;
+  margin-left: 5%;
+}
+
+.alert {
+  color: red;
+  font-size: smaller;
+}

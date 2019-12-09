@@ -25,6 +25,7 @@ import {FeedbackService} from './services/feedback.service';
 import { CinemaComponent } from './cinema/cinema.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FilterPipe } from './pipes/filter.pipe';
+import { CurrencyComponent } from './currency/currency.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     ReactiveFormComponent,
     PageNotFoundComponent,
     CinemaComponent,
-    FilterPipe
+    FilterPipe,
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,

@@ -20,3 +20,7 @@
 .placeholder {
   color: black;
 }
+
+mat-panel-description {
+  max-width: 70%;
+}

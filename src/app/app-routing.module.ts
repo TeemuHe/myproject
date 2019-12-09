@@ -6,6 +6,7 @@ import {FormComponent} from './form/form.component';
 import {ReactiveFormComponent} from './reactive-form/reactive-form.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {CinemaComponent} from './cinema/cinema.component';
+import {CurrencyComponent} from './currency/currency.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'form' , component: FormComponent},
   {path: 'reactiveform', component: ReactiveFormComponent},
   {path: 'cinema', component: CinemaComponent},
+  {path: 'currency', component: CurrencyComponent},
 
   {path: '', redirectTo: '/calculator', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}

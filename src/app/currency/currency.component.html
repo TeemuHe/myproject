@@ -1,0 +1,44 @@
+<h1>Valuuttamuunnin</h1>
+
+<form class="container" [formGroup]="currencyForm" (ngSubmit)="onSubmit(currencyOne)">
+<section class="currency">
+  <mat-form-field>
+    <input matInput
+           type="text"
+           id="currencyOne"
+           [formControl]="currencyOne"
+           formControlName="currencyOne"
+           class="form-control"
+           name="currencyOne"
+           placeholder="Syötä summa..."
+           required>
+    <div *ngIf="currencyOne.invalid && (currencyOne.dirty || currencyOne.touched)"
+          class="alert alert-danger">
+      <div *ngIf="currencyOne.errors.required">Laita summa</div>
+      <div *ngIf="currencyOne.errors.pattern">Virheellisiä merkkejä</div>
+    </div>
+  </mat-form-field>
+  <select>
+    <option value="euro">€</option>
+    <option value="dollari">$</option>
+    <option value="punta">£</option>
+  </select>
+</section>
+
+<section class="arrowSection">
+  <mat-icon class="arrowIcon">arrow_right_alt</mat-icon>
+  <button mat-raised-button (click)="onSubmit(currencyOne)">Laske</button>
+  <!--<button mat-raised-button (click)="onSubmit(currencyOne, currencyTwo)">Laske</button>-->
+</section>
+
+<section class="currency">
+  <select>
+    <option value="euro">€</option>
+    <option value="dollari">$</option>
+    <option value="punta">£</option>
+  </select>
+</section>
+  <section>
+    <div>{{this.currencyTwo}}</div>
+  </section>
+</form>
