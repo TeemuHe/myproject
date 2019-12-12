@@ -26,6 +26,12 @@ import { CinemaComponent } from './cinema/cinema.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FilterPipe } from './pipes/filter.pipe';
 import { CurrencyComponent } from './currency/currency.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminComponent } from './admin/admin.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,9 @@ import { CurrencyComponent } from './currency/currency.component';
     PageNotFoundComponent,
     CinemaComponent,
     FilterPipe,
-    CurrencyComponent
+    CurrencyComponent,
+    AdminLoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,10 @@ import { CurrencyComponent } from './currency/currency.component';
     MatIconModule,
     MatExpansionModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [
     FeedbackService

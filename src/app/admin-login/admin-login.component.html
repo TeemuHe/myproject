@@ -1,0 +1,26 @@
+<h1>Kirjaudu sisään</h1>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <mat-card class="container">
+    <mat-form-field>
+      <input matInput
+             type="text"
+             id="email"
+             [formControl]="email"
+             formControlName="email"
+             placeholder="Käyttäjätunnus">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput
+             type="password"
+             id="password"
+             [formControl]="password"
+             formControlName="password"
+             placeholder="Salasana">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button class="loginBtn" (click)="logInFunction(email.value, password.value)">Kirjaudu</button>
+    <button mat-raised-button class="cancelBtn" (click)="cancelLogging()">Peruuta</button>
+  </mat-card>
+</form>
+

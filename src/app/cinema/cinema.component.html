@@ -8,8 +8,8 @@
 
 <div class="form-group">
   <mat-form-field>
-    <input matInput placeholder="Hae uutista..." type="text" [(ngModel)]="searchText">
-  </mat-form-field>
+  <input matInput placeholder="Hae uutista..." type="text" [(ngModel)]="searchText">
+</mat-form-field>
 </div>
 <mat-accordion>
   <mat-expansion-panel class="movie" *ngFor="let item of cinemaData$ | async | filter : searchText">
