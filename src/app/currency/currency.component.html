@@ -1,44 +1,45 @@
 <h1>Valuuttamuunnin</h1>
 
-<form class="container" [formGroup]="currencyForm" (ngSubmit)="onSubmit(currencyOne)">
-<section class="currency">
-  <mat-form-field>
+<!--<div *ngFor="let item of currencyData$">
+  <h2>{{item}}</h2>
+</div>-->
+
+<form class="container" [formGroup]="currencyForm" (ngSubmit)="onSubmit($event)">
+  <mat-form-field class="form-group">
     <input matInput
-           type="text"
-           id="currencyOne"
-           [formControl]="currencyOne"
-           formControlName="currencyOne"
+           type="number"
+           id="amount"
+           [formControl]="amount"
+           #userAmount
+           formControlName="amount"
            class="form-control"
-           name="currencyOne"
-           placeholder="Syötä summa..."
-           required>
-    <div *ngIf="currencyOne.invalid && (currencyOne.dirty || currencyOne.touched)"
-          class="alert alert-danger">
-      <div *ngIf="currencyOne.errors.required">Laita summa</div>
-      <div *ngIf="currencyOne.errors.pattern">Virheellisiä merkkejä</div>
-    </div>
+           name="amount"
+           placeholder="Syötä summa euroina...">
   </mat-form-field>
-  <select>
-    <option value="euro">€</option>
-    <option value="dollari">$</option>
-    <option value="punta">£</option>
-  </select>
-</section>
+  <div *ngIf="amount.invalid && (amount.dirty || amount.touched)"
+       class="alert alert-danger">
+    <div *ngIf="amount.errors.required">Laita summa</div>
+    <div *ngIf="amount.errors.pattern">Laita numeroita</div>
+  </div>
 
-<section class="arrowSection">
-  <mat-icon class="arrowIcon">arrow_right_alt</mat-icon>
-  <button mat-raised-button (click)="onSubmit(currencyOne)">Laske</button>
-  <!--<button mat-raised-button (click)="onSubmit(currencyOne, currencyTwo)">Laske</button>-->
-</section>
+  <br>
+  <mat-form-field>
+    <p *ngIf="currencyData$ | async"></p>
+    <label>Valitse valuutta?</label>
+    <mat-select #fieldFrom value="valueOne" [(value)]="currencyShort">
+      <mat-option></mat-option>
+      <!--<mat-option *ngFor="let rate of currencyData$ | async" id="currencyShort" (click)="onSubmit($event)" name="currencyShort" value="{{rate}}">{{rate}}</mat-option>-->
+    </mat-select>
+  </mat-form-field>
+  <p>{{currencyShort}}</p>
+  <!--<mat-form-field>
+    <label>Mihin?</label>
+    <mat-select  #fieldTo class="selection" value="valueTwo" name="amountTo">
+      <mat-option *ngFor="let rate of rates" value="{{rate | json}}">{{rate | json}}</mat-option>
+    </mat-select>
+  </mat-form-field>-->
+    <br><br><br>
+  <button mat-raised-button (click)="countResult(fieldFrom.value, fieldTo.value, userAmount.value)">Nappula</button>
+    <div class="result" id="becomingAmount">{{totalAmount | number:'0.0-2'}}</div>
 
-<section class="currency2">
-  <select>
-    <option value="euro">€</option>
-    <option value="dollari">$</option>
-    <option value="punta">£</option>
-  </select>
-</section>
-  <section>
-    <div>{{this.currencyTwo}}</div>
-  </section>
 </form>

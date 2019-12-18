@@ -32,10 +32,12 @@ export class AdminLoginComponent implements OnInit {
 
   logInFunction(email: string, password: string) {
     this.authService.login(email, password);
+    this.router.navigate(['/admin']);
   }
 
   onSubmit() {
     console.log(this.userForm);
+    console.log('joo');
   }
 
   cancelLogging() {

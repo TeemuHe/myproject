@@ -2,24 +2,22 @@ section {
   display: inline-block;
 }
 
-.currency {
-  margin-left: 29%;
-}
-
-.currency2 {
-  margin-left: 10%;
-}
-
-.arrowIcon {
-  margin-left: 5%;
-}
-
-.arrowSection {
-  width: 1%;
-  margin-left: 5%;
-}
-
 .alert {
   color: red;
   font-size: smaller;
+}
+
+.container {
+  margin-left: 35%;
+  background: lightgreen;
+  margin-right: 35%;
+  border: 35px solid lightgreen;
+  border-radius: 15%;
+}
+
+.selection {
+  background-color: lightgreen;
+  border-radius: 15%;
+  border: 3px solid lightgreen;
+  margin-right: 35%;
 }

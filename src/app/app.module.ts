@@ -8,7 +8,7 @@ import {
   MatButtonModule,
   MatCardModule, MatCheckboxModule, MatExpansionModule,
   MatFormFieldModule, MatInputModule,
-  MatMenuModule,
+  MatMenuModule, MatSelectModule,
   MatSliderModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
@@ -32,6 +32,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
+import {CurrencyService} from './services/currency.service';
+import {AuthGuard} from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -68,12 +70,14 @@ import {environment} from '../environments/environment';
     MatExpansionModule,
     HttpClientModule,
     MatInputModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatSelectModule
   ],
   providers: [
-    FeedbackService
+    FeedbackService,
+    CurrencyService
   ],
   bootstrap: [AppComponent]
 })
