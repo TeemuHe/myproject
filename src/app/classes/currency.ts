@@ -1,11 +1,17 @@
 export class Currency {
-  rates: [];
+  /*rates: [];
   base: string;
-  date: string;
+  date: string;*/
+  valueKey: string;
+  currencyValue: number;
+  // currencyData: [];
 
-  constructor(rates: [], base: string, date: string) {
-    this.rates = rates;
+  constructor(/*rates: [], base: string, date: string, */key: string, value: number, /*currencyData: []*/) {
+    /*this.rates = rates;
     this.base =  base;
-    this.date = date;
+    this.date = date;*/
+    this.valueKey = key;
+    this.currencyValue = value;
+    // this.currencyData = currencyData;
   }
 }

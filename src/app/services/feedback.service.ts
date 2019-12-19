@@ -6,7 +6,7 @@ import {FeedbackItem} from '../classes/feedback-item';
 })
 export class FeedbackService {
 
-  feedbackItemsList: Array<FeedbackItem>
+  feedbackItemsList: Array<FeedbackItem>;
 
   constructor() {
     this.feedbackItemsList = [new FeedbackItem('Millaista ruoka oli?'),

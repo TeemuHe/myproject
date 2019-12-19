@@ -3,6 +3,8 @@ import {CurrencyService} from '../services/currency.service';
 import {Currency} from '../classes/currency';
 import {Observable} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {connectableObservableDescriptor} from 'rxjs/internal/observable/ConnectableObservable';
+import {conditionallyCreateMapObjectLiteral} from '@angular/compiler/src/render3/view/util';
 
 /*import {CURRENCIES} from '../mock-currencies';
 
@@ -51,7 +53,6 @@ export class CurrencyComponent implements OnInit {
 
   // currencies = CURRENCIES;
 
-
   public currencyData$: Observable<any>;
 
   currencyForm: FormGroup;
@@ -73,7 +74,7 @@ export class CurrencyComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private currencyService: CurrencyService) {
     this.currencyForm = fb.group({});
-    type MyArrayType = Array<{ id: string, value: number }>;
+    // type MyArrayType = Array<{ id: string, value: number }>;
 
     this.MyArrayType = [
       {id: 'CAD', value: 1.4624},
@@ -113,7 +114,7 @@ export class CurrencyComponent implements OnInit {
 
   ngOnInit() {
     this.currencyData$ = this.currencyService.getCurrencyData();
-    console.log(this.MyArrayType);
+    // console.log(this.MyArrayType);
     /*this.currencyService.getCurrencyData().subscribe(result => {
       console.log('Data fetched from API');
     });*/
@@ -122,13 +123,10 @@ export class CurrencyComponent implements OnInit {
     });
   }
 
-
   countResult(currencyValue, userAmount) {
-    // console.log(currencyValue + ' ja sit käyttäjän summa ' + userAmount);
-    // console.log('Morjestaa');
+    // console.log('Asiakas syötti ' + userAmount);
     this.totalAmount = userAmount / currencyValue;
-    // console.log(this.totalAmount);
-    return;
+    return this.totalAmount;
   }
 
   onSubmit(event: any) {
@@ -137,7 +135,6 @@ export class CurrencyComponent implements OnInit {
     this.currencyService.getCurrencyValue(this.currencyValue);
     return event.target.currencyShort;
   }
-
 
   get amount() {
     return this.currencyForm.get('amount');

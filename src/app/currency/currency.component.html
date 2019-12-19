@@ -1,9 +1,5 @@
 <h1>Valuuttamuunnin</h1>
 
-<!--<div *ngFor="let item of currencyData$">
-  <h2>{{item}}</h2>
-</div>-->
-
 <form class="container" [formGroup]="currencyForm" (ngSubmit)="onSubmit($event)">
   <mat-form-field class="form-group">
     <input matInput
@@ -14,6 +10,7 @@
            formControlName="amount"
            class="form-control"
            name="amount"
+           (input)="countResult(fieldFrom.value, userAmount.value)"
            placeholder="Summa valitsemallasi valuutalla...">
   </mat-form-field>
   <div *ngIf="amount.invalid && (amount.dirty || amount.touched)"
@@ -24,24 +21,16 @@
 
   <br>
   <mat-form-field>
-    <p *ngIf="currencyData$ | async"></p>
     <label>Valitse valuutta?</label>
-    <mat-select #fieldFrom value="valueOne" [(value)]="currencyValue">
-      <mat-option *ngFor="let currencyName of MyArrayType" value="{{currencyName.value}}">{{currencyName.id}}</mat-option>
-      <!--<mat-option *ngFor="let rate of currencyData$ | async" id="currencyShort" (click)="onSubmit($event)" name="currencyShort" value="{{rate}}">{{rate}}</mat-option>-->
+    <mat-select #fieldFrom [(value)]="currencyValue">
+      <mat-option *ngFor="let currName of currencyData$ | async" value="{{currName.currencyValue}}" (click)="countResult(fieldFrom.value, userAmount.value)">{{currName.valueKey}}</mat-option>
+
+      <!--<mat-option *ngFor="let currencyName of MyArrayType" value="{{currencyName.value}}">{{currencyName.id}}</mat-option>-->
+      <!--<mat-option *ngFor="let rate of currencyData$ | async" id="currencyShort" name="currencyShort" value="{{rate}}">{{rate}}</mat-option>-->
     </mat-select>
   </mat-form-field>
-  <p>{{currencyValue}}</p>
-  <!--<mat-form-field>
-    <label>Mihin?</label>
-    <mat-select  #fieldTo class="selection" value="valueTwo" name="amountTo">
-      <mat-option *ngFor="let rate of rates" value="{{rate | json}}">{{rate | json}}</mat-option>
-    </mat-select>
-  </mat-form-field>-->
-    <br><br><br>
-  <button mat-raised-button (click)="countResult(fieldFrom.value, userAmount.value)">Laske</button>
-    <div class="result" id="becomingAmount">{{totalAmount | number:'0.0-2'}}</div>
-
-  <!--<li *ngFor="let currency of MyArrayType">{{currency.id}}</li>-->
-
+  <!--<p>{{currencyValue}} Kerroin</p>-->
+    <br>
+  <!--<button mat-raised-button (click)="countResult(fieldFrom.value, userAmount.value)">Laske</button>-->
+  <div class="result" id="becomingAmount">{{totalAmount | currency: 'EUR'}}</div>
 </form>

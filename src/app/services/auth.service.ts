@@ -2,17 +2,18 @@ import {Injectable, NgZone} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: any;
-  // userData: Observable<firebase.User>;
   // jaska.jokunen@gmail.com  -  salasana
-  userEmail: string;
+  private userEmail: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(public afs: AngularFirestore, public afAuth: AngularFireAuth, public router: Router, public ngZone: NgZone) {
+
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -33,23 +34,6 @@ export class AuthService {
       }).catch((error) => {
         window.alert(error.message);
       });
-
-
-
-    /*return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
-      .then(result => {
-        this.userEmail.next(user.email);
-
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });*/
-    /*this.angularFireAuth.auth.signInWithEmailAndPassword(email, password).then(res => {
-      console.log('kirjaumine toimii');
-    });
-
-    console.log(email);
-    console.log(password);*/
   }
 
   getLoggedInUser(): any {
@@ -65,7 +49,7 @@ export class AuthService {
       });
   }
 
-  checkLoggedInUser() {
-
+  checkLoggedIn(): Observable<string> {
+    return this.userEmail;
   }
 }

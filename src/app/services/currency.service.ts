@@ -10,15 +10,13 @@ import {map} from 'rxjs/operators';
 export class CurrencyService {
 
   url: string;
+  currencyList: Array<Currency>;
 
   constructor(private httpClient: HttpClient) {
     this.url = 'https://api.exchangeratesapi.io/latest';
+    this.currencyList = new Array<Currency>();
 
-    /*this.rates = [new Currency('CAD: 1,4712'),
-    new Currency('HKD: 8.7062'),
-    new Currency('ISK: 137'),
-    new Currency('PHP: 56.441'),
-    new Currency('DKK: 7.4731')];*/
+    // this.currencyList = [new Currency('', 0)];
   }
 
   getCurrencyData(): Observable<any> {
@@ -29,19 +27,23 @@ export class CurrencyService {
       // console.log(Object.keys(response.rates)); // lyhenteet
       // @ts-ignore
       // console.log(Object.values(response.rates)); // desimaaliluku
-      console.log(Object(response.rates));
+      // console.log(Object(response.rates));
       // @ts-ignore
       const objectArray = Object.entries(response.rates);
 
       objectArray.forEach(([key, value]) => {
+       this.currencyList.push(new Currency(key, Number(value)));
         // console.log('Lyhenne ' + key);
         // console.log('Desimaaliarvo ' + value);
       });
-
+      return this.currencyList;
       // console.log(response);
       // console.log('pipen ohi meni');
+      // console.log(this.currencyList);
+
       // return response as Currency[];
-      return /*console.log(objectArray + 'okok')*/;
+      // console.log(objectArray.keys());
+      // return objectArray.keys();
     }));
   }
 
