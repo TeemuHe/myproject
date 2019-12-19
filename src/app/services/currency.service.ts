@@ -10,7 +10,6 @@ import {map} from 'rxjs/operators';
 export class CurrencyService {
 
   url: string;
-  currShort: object;
 
   constructor(private httpClient: HttpClient) {
     this.url = 'https://api.exchangeratesapi.io/latest';
@@ -27,27 +26,28 @@ export class CurrencyService {
     return this.httpClient.get(this.url).pipe(map(response => {
       // @ts-ignore
       // tee muuttuja lyhenteille
-      console.log(Object.keys(response.rates)); // lyhenteet
+      // console.log(Object.keys(response.rates)); // lyhenteet
       // @ts-ignore
-      console.log(Object.values(response.rates)); // desimaaliluku
+      // console.log(Object.values(response.rates)); // desimaaliluku
+      console.log(Object(response.rates));
       // @ts-ignore
       const objectArray = Object.entries(response.rates);
 
       objectArray.forEach(([key, value]) => {
-        console.log('Lyhenne ' + key);
-        console.log('Desimaaliarvo ' + value);
+        // console.log('Lyhenne ' + key);
+        // console.log('Desimaaliarvo ' + value);
       });
 
       // console.log(response);
       // console.log('pipen ohi meni');
       // return response as Currency[];
-      return response as Currency;
+      return /*console.log(objectArray + 'okok')*/;
     }));
   }
 
-  getCurrencyValue(currencyShort) {
-    console.log(currencyShort);
-    console.log('Nytte');
+  getCurrencyValue(objectArray) {
+    // console.log(objectArray);
+    // console.log('Nytte');
     // jasit vaa looppaa json läpiet oikea ja ottaa arvon
   }
 }

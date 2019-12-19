@@ -14,7 +14,7 @@
            formControlName="amount"
            class="form-control"
            name="amount"
-           placeholder="Syötä summa euroina...">
+           placeholder="Summa valitsemallasi valuutalla...">
   </mat-form-field>
   <div *ngIf="amount.invalid && (amount.dirty || amount.touched)"
        class="alert alert-danger">
@@ -26,12 +26,12 @@
   <mat-form-field>
     <p *ngIf="currencyData$ | async"></p>
     <label>Valitse valuutta?</label>
-    <mat-select #fieldFrom value="valueOne" [(value)]="currencyShort">
-      <mat-option></mat-option>
+    <mat-select #fieldFrom value="valueOne" [(value)]="currencyValue">
+      <mat-option *ngFor="let currencyName of MyArrayType" value="{{currencyName.value}}">{{currencyName.id}}</mat-option>
       <!--<mat-option *ngFor="let rate of currencyData$ | async" id="currencyShort" (click)="onSubmit($event)" name="currencyShort" value="{{rate}}">{{rate}}</mat-option>-->
     </mat-select>
   </mat-form-field>
-  <p>{{currencyShort}}</p>
+  <p>{{currencyValue}}</p>
   <!--<mat-form-field>
     <label>Mihin?</label>
     <mat-select  #fieldTo class="selection" value="valueTwo" name="amountTo">
@@ -39,7 +39,9 @@
     </mat-select>
   </mat-form-field>-->
     <br><br><br>
-  <button mat-raised-button (click)="countResult(fieldFrom.value, fieldTo.value, userAmount.value)">Nappula</button>
+  <button mat-raised-button (click)="countResult(fieldFrom.value, userAmount.value)">Laske</button>
     <div class="result" id="becomingAmount">{{totalAmount | number:'0.0-2'}}</div>
+
+  <!--<li *ngFor="let currency of MyArrayType">{{currency.id}}</li>-->
 
 </form>
