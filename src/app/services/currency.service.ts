@@ -30,4 +30,10 @@ export class CurrencyService {
       return this.currencyList;
     }));
   }
+
+  getCurrencyValue(objectArray) {
+    // console.log(objectArray);
+    // console.log('Nytte');
+    // jasit vaa looppaa json läpiet oikea ja ottaa arvon
+  }
 }
