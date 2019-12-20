@@ -18,18 +18,14 @@
     <div *ngIf="amount.errors.required">Laita summa</div>
     <div *ngIf="amount.errors.pattern">Laita numeroita</div>
   </div>
-
   <br>
   <mat-form-field>
     <label>Valitse valuutta?</label>
     <mat-select #fieldFrom [(value)]="currencyValue">
       <mat-option *ngFor="let currName of currencyData$ | async" value="{{currName.currencyValue}}" (click)="countResult(fieldFrom.value, userAmount.value)">{{currName.valueKey}}</mat-option>
-
-      <!--<mat-option *ngFor="let currencyName of MyArrayType" value="{{currencyName.value}}">{{currencyName.id}}</mat-option>-->
-      <!--<mat-option *ngFor="let rate of currencyData$ | async" id="currencyShort" name="currencyShort" value="{{rate}}">{{rate}}</mat-option>-->
     </mat-select>
   </mat-form-field>
-  <!--<p>{{currencyValue}} Kerroin</p>-->
+  <p>Valuutan kurssi: {{currencyValue}}</p>
     <br>
   <!--<button mat-raised-button (click)="countResult(fieldFrom.value, userAmount.value)">Laske</button>-->
   <div class="result" id="becomingAmount">{{totalAmount | currency: 'EUR'}}</div>
