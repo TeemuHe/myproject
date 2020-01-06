@@ -12,7 +12,7 @@ export class AdminLoginComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private router: Router, public authService: AuthService) {
   }
 
   ngOnInit() {
@@ -33,15 +33,14 @@ export class AdminLoginComponent implements OnInit {
   logInFunction(email: string, password: string) {
     this.authService.login(email, password);
     this.router.navigate(['/admin']);
+    return email;
   }
 
   onSubmit() {
     console.log(this.userForm);
-    console.log('joo');
   }
 
   cancelLogging() {
     this.router.navigate(['/calculator']);
   }
-
 }

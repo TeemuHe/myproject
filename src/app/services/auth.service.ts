@@ -8,13 +8,20 @@ import {BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  userData: any;
   // jaska.jokunen@gmail.com  -  salasana
-  private userEmail: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  public userEmail: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  constructor(public afs: AngularFirestore, public afAuth: AngularFireAuth, public router: Router, public ngZone: NgZone) {
+  constructor(public afAuth: AngularFireAuth, public router: Router) {
 
     this.afAuth.authState.subscribe(user => {
+      if (user != null) {
+        this.userEmail.next(user.email);
+        console.log(user.email + 'eemaili');
+        return user.email;
+      }
+    });
+
+    /*this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
@@ -23,13 +30,14 @@ export class AuthService {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
-    });
+    });*/
   }
 
   login(email, password) {
     console.log('Kirjaudutaan' + email + password);
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
+        this.checkLoggedIn(email);
         // this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message);
@@ -37,10 +45,9 @@ export class AuthService {
   }
 
   getLoggedInUser(): any {
-    console.log(Boolean(this.afAuth.authState));
+    // console.log(Boolean(this.afAuth.authState));
     return this.afAuth.authState;
   }
-
 
   logout() {
     return this.afAuth.auth.signOut()
@@ -49,7 +56,11 @@ export class AuthService {
       });
   }
 
-  checkLoggedIn(): Observable<string> {
-    return this.userEmail;
+  checkLoggedIn(email) {
+    return email;
   }
+
+  /*checkLoggedInUser(): Observable<any> {
+    return this.userEmail;
+  }*/
 }
