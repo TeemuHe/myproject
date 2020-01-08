@@ -12,7 +12,7 @@
     <a href="/admin-login"><button mat-flat-button><mat-icon>person</mat-icon> Admin-näkymä</button></a>
   </mat-menu>
   <div class="logout" *ngIf="userEmail$ | async as email">
-    <span>{{email}} -</span>
+    <span>Kirjauduttu sisään  </span>
     <button mat-raised-button (click)="authService.logout()">Log out</button>
   </div>
   <button mat-flat-button class="signInBtn" [routerLink]="['/admin-login']">SIGN IN</button>
